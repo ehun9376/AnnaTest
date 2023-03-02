@@ -268,3 +268,99 @@ for data in datas2 {
     }
 }
 print(onlySexMData)
+
+//jobName工作名稱,city: 地區, salary: 薪資 type: 薪資類型 (d:日薪, m:月薪, y: 年薪) max: 薪資上限 min: 薪資下限
+//任務1: 獲得一個全部資料的 struct陣列
+//任務2: 篩選出月薪上限高於25260的工作列表
+let jobJsonArray: [[String: Any]] = [
+    [
+        "jobName": "清潔工",
+        "city": "台北市",
+        "salary": [
+            "type": "d",
+            "max": 2000,
+            "min": 1000
+        ]
+    ],
+    [
+        "jobName": "軟體工程師",
+        "city": "新北市",
+        "salary": [
+            "type": "m",
+            "max": 40000,
+            "min": 30000
+        ]
+    ],
+    [
+        "jobName": "iOS工程師",
+        "city": "新北市",
+        "salary": [
+            "type": "y",
+            "max": 1000000,
+            "min": 700000
+        ]
+    ],
+    [
+        "jobName": "高階主管",
+        "city": "台北市",
+        "salary": [
+            "type": "m",
+            "max": 50000,
+            "min": 40000
+        ]
+    ],
+    [
+        "jobName": "高階軟體工程師",
+        "city": "新北市",
+        "salary": [
+            "type": "m",
+            "max": 200000,
+            "min": 100000
+        ]
+    ],
+    [
+        "jobName": "低級軟體工程師",
+        "city": "新北市",
+        "salary": [
+            "type": "m",
+            "max": 9000,
+            "min": 3000
+        ]
+    ],
+    [
+        "jobName": "水電工",
+        "city": "高雄市",
+        "salary": [
+            "type": "d",
+            "max": 1500,
+            "min": 1000
+        ]
+    ],
+    [
+        "jobName": "板模工",
+        "city": "屏東市",
+        "salary": [
+            "type": "m",
+            "max": 45000,
+            "min": 35000
+        ]
+    ],
+    [
+        "jobName": "板模師傅",
+        "city": "宜蘭市",
+        "salary": [
+            "type": "y",
+            "max": 3000000,
+            "min": 1000000
+        ]
+    ],
+    [
+        "jobName": "電腦硬體工程師",
+        "city": "新北市",
+        "salary": [
+            "type": "m",
+            "max": 35000,
+            "min": 30000
+        ]
+    ],
+]
