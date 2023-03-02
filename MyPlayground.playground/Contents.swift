@@ -258,7 +258,7 @@ for data in datas2 {
     }
     
 }
-print(onlyTaipeiData)
+//print(onlyTaipeiData)
 
 var onlySexMData:[PersonalData] = []
 
@@ -267,11 +267,10 @@ for data in datas2 {
         onlySexMData.append(data)
     }
 }
-print(onlySexMData)
+//print(onlySexMData)
 
-//jobName工作名稱,city: 地區, salary: 薪資 type: 薪資類型 (d:日薪, m:月薪, y: 年薪) max: 薪資上限 min: 薪資下限
-//任務1: 獲得一個全部資料的 struct陣列
-//任務2: 篩選出月薪上限高於25260的工作列表
+
+
 let jobJsonArray: [[String: Any]] = [
     [
         "jobName": "清潔工",
@@ -364,3 +363,47 @@ let jobJsonArray: [[String: Any]] = [
         ]
     ],
 ]
+//jobName工作名稱,city: 地區, salary: 薪資 type: 薪資類型 (d:日薪, m:月薪, y: 年薪) max: 薪資上限 min: 薪資下限
+//任務1: 獲得一個全部資料的 struct陣列
+//任務2: 篩選出薪水是以月薪計算，且上限高於25260的工作列表
+struct Jobdata {
+    var jobName: String = ""
+    var city: String = ""
+    var salary: Salarydata = Salarydata(json: [:])
+    
+    init(
+        json:[String:Any]
+    ){
+        self.city = json["city"] as? String ?? ""
+        self.jobName = json["jobName"] as? String ?? ""
+        self.salary = Salarydata(json: json["salary"] as? [String:Any] ?? [:])
+    }
+    
+}
+
+struct Salarydata{
+    var type:String = ""
+    var max:Int = 0
+    var min:Int = 0
+    
+    init(
+        json:[String:Any]
+    ){
+        self.type = json["type"] as? String ?? ""
+        self.max = json["max"] as? Int ?? 0
+        self.min = json["min"] as? Int ?? 0
+    }
+}
+
+var jobDataArray:[Jobdata] = []
+
+for json in jobJsonArray{
+    let data = Jobdata.init(json: json)
+//    datas.append(data)
+    if data.salary.type == "m" && data.salary.max >= 25260 {
+        jobDataArray.append(data)
+    }
+    
+}
+print(jobDataArray)
+
