@@ -212,7 +212,6 @@ struct Addrdata {
     ){
         self.city = city
         self.area = area
-        print(area)
     }
     
 
@@ -239,7 +238,7 @@ for json in jsonArray {
     
 }
 
-print(datas1)
+//print(datas1)
 
 var datas2: [PersonalData] = []
 
@@ -248,12 +247,24 @@ for json in jsonArray {
     datas2.append(data)
 }
 
-print(datas2)
+//print(datas2)
+
+var onlyTaipeiData: [PersonalData] = []
 
 for data in datas2 {
-    print(data.name)
+    if data.addr.city == "台北市"{
+        onlyTaipeiData.append(data)
+
+    }
+    
 }
+print(onlyTaipeiData)
 
+var onlySexMData:[PersonalData] = []
 
-
-
+for data in datas2 {
+    if data.sex == "M"{
+        onlySexMData.append(data)
+    }
+}
+print(onlySexMData)
